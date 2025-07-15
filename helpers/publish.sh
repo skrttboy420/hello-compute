@@ -8,6 +8,13 @@ if [ "$answer" != "${answer#[Yy]}" ] ; then
     if [ ! $FASTLY_API_TOKEN ]; then 
         echo '⚠️ Grab an API key and add it your repo before deploying! Check out the README for steps. 📖' 
     else 
+        cd origin
+        npm run build
+        npm run deploy
+        cd ../
+        if ! grep -wq "setup.backends.website" fastly.toml; then 
+            echo -e "\n[setup]\n    [setup.backends]\n      [setup.backends.website]\n          address = \"${GITHUB_USER}.github.io/\"" >> fastly.toml
+        fi
         npm run build
         npm run deploy || { echo 'Oops! Something went wrong deploying your app.. 🤬'; exit 1; }
         readarray -t lines < <(npm run domain)

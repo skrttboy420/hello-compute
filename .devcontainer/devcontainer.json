@@ -25,7 +25,7 @@
   "postAttachCommand": {
     "inform": "bash helpers/welcome.sh",
     "build": "npm run start",
-    "origin": "cd origin && npm run build && npm run preview"
+    "origin": "cd origin && npm run serve"
   },
   "waitFor": "updateContentCommand",
   "customizations": {

@@ -10,6 +10,7 @@ export default defineConfig(async ({ command, mode }) => {
         },
       }
     },
-    publicDir: "./public"
+    publicDir: "./public",
+    base: "/"+process.env.RepositoryName+"/"
   }
 });

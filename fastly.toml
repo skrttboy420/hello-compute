@@ -12,16 +12,8 @@ name = "Hello Compute"
   [local_server.backends]
 
     [local_server.backends.website]
-      override_host = "glitchdotcom.github.io"
-      url = "https://glitchdotcom.github.io/"
+      url = "http://localhost:4173/"
 
 [scripts]
   build = "npm run build"
   post_init = "npm install"
-
-[setup]
-
-  [setup.backends]
-
-    [setup.backends.website]
-      address = "glitchdotcom.github.io"
