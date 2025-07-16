@@ -11,6 +11,6 @@
     "start": "fastly compute serve --watch",
     "deploy": "fastly compute publish --accept-defaults --auto-yes",
     "domain": "fastly domain list --version=latest",
-    "origin-deploy": "gh-pages -d dist -src origin"
+    "origin-deploy": "gh-pages -d origin"
   }
 }

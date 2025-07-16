@@ -25,15 +25,14 @@
   "postAttachCommand": {
     "inform": "bash helpers/welcome.sh",
     "build": "npm run start",
-    "origin": "cd origin && npm run serve"
+    "origin": "cd origin && npx --yes serve"
   },
   "waitFor": "updateContentCommand",
   "customizations": {
     "vscode": {
       "extensions": [
         "jkearins.action-buttons-ext@0.1.1",
-        "dbaeumer.vscode-eslint",
-        "ritwickdey.LiveServer"
+        "dbaeumer.vscode-eslint"
       ],
       "settings": {
         "files.exclude": {
@@ -43,8 +42,6 @@
         },
         "editor.minimap.enabled": false,
         "chat.sendElementsToChat.enabled": false,
-        "liveServer.settings.NoBrowser": true,
-      	"liveServer.settings.donotShowInfoMsg": true,
         "actionButtons": {
           "commands": [
             {
@@ -68,16 +65,6 @@
               "command": "workbench.action.moveEditorToNextGroup",
               "tooltip": "Move your active tab to the side"
             },
-	    {
-              "name": "🏠 Origin",
-              "singleInstance": true,
-              "useVsCodeApi": true,
-              "command": "workbench.action.tasks.runTask",
-              "args": [
-                "open"
-              ],
-              "tooltip": "View your origin site"
-            },
             {
               "name": "🔗 Share",
               "singleInstance": true,
@@ -93,16 +80,7 @@
           ],
           "defaultColor": "none",
           "reloadButton": null
-        },
-	"tasks": {
-          "version": "2.0.0",
-          "tasks": [
-            {
-              "label": "open",
-              "command": "${command:extension.liveServer.goOnline}"
-            }
-          ]
-        },
+        }
       }
     }
   }

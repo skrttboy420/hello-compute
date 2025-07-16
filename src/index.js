@@ -3,6 +3,7 @@
  */
 
 import { getGeolocationForIpAddress } from "fastly:geolocation";
+import { env } from "fastly:env";
 let where = "?", greeting = "Hello! ";
 let root = "/hello-compute-with-origin/"; //change the root if your site is at a different path 
 
@@ -10,6 +11,8 @@ let root = "/hello-compute-with-origin/"; //change the root if your site is at a
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
 async function handleRequest(_event) {
+  if(env("FASTLY_HOSTNAME") == "localhost") root = "/";
+  
   //The request the user made
   let req = _event.request;
   let url = new URL(req.url);

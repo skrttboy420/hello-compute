@@ -5,14 +5,14 @@ authors = ["<oss@fastly.com>"]
 description = "A project for learning about edge computing."
 language = "javascript"
 manifest_version = 3
-name = "Hello Compute"
+name = "Hello Compute with Origin"
 
 [local_server]
 
   [local_server.backends]
 
     [local_server.backends.website]
-      url = "http://localhost:4173/"
+      url = "http://localhost:3000/"
 
 [scripts]
   build = "npm run build"
