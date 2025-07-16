@@ -9,7 +9,7 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "portsAttributes": {
-    "4173": {
+    "3000-3010": {
       "label": "Origin",
       "onAutoForward": "openPreview"
     },
@@ -32,19 +32,19 @@
     "vscode": {
       "extensions": [
         "jkearins.action-buttons-ext@0.1.1",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "ritwickdey.LiveServer"
       ],
       "settings": {
         "files.exclude": {
           "package-lock.json": true,
           ".gitignore": true,
-          "node_modules/": true,
-		  "origin/node_modules": true,
-		  "origin/dist": true,
-		  "origin/package-lock.json": true
+          "node_modules/": true
         },
         "editor.minimap.enabled": false,
         "chat.sendElementsToChat.enabled": false,
+        "liveServer.settings.NoBrowser": true,
+      	"liveServer.settings.donotShowInfoMsg": true,
         "actionButtons": {
           "commands": [
             {
@@ -68,6 +68,16 @@
               "command": "workbench.action.moveEditorToNextGroup",
               "tooltip": "Move your active tab to the side"
             },
+	    {
+              "name": "🏠 Origin",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.tasks.runTask",
+              "args": [
+                "open"
+              ],
+              "tooltip": "View your origin site"
+            },
             {
               "name": "🔗 Share",
               "singleInstance": true,
@@ -83,7 +93,16 @@
           ],
           "defaultColor": "none",
           "reloadButton": null
-        }
+        },
+	"tasks": {
+          "version": "2.0.0",
+          "tasks": [
+            {
+              "label": "open",
+              "command": "${command:extension.liveServer.goOnline}"
+            }
+          ]
+        },
       }
     }
   }
