@@ -30,9 +30,9 @@ Give the codespace a minute or two to start up – it'll automatically build and
 
 ## Get to know your app
 
-This starter kit changes the behavior of a website at the edge. Check out the <a href="https://glitchdotcom.github.io/compute-origin" target="_blank">origin version of the site</a>.
+This starter kit changes the behavior of a website at the edge. The project includes a demo website for you to enhance in your Compute app. The origin website is inside the `origin` folder.
 
-In your codespace preview:
+In your codespace preview, try the functionality in both the origin and the Compute versions:
 
 * Try opening a page that doesn't exist: `/ohno`
 * Now try a page that the origin returns as JSON: `/data.json`
@@ -46,7 +46,7 @@ You can view the origin version of the site in the codespace too by opening the 
 
 ![origin site open](https://github.com/user-attachments/assets/cc768d28-458f-4ab8-b772-f88d7db51603)
 
-> ⚠️ _If you're using your own origin website and want to view it in the codespace, change the code in `origin/index.html` to point the `iframe` `src` attribute to your site._
+> If you make changes to your origin site, you'll need to reload it in the preview.
 
 Explore the code:
 
@@ -98,6 +98,8 @@ You can share links to your draft app with collaborators – click **🔗 Share*
 
 ## Deploy your app to Fastly Compute
 
+You can try your Compute app at the edge using the **🚀 Publish** button. This will deploy your origin site to the GitHub Pages site for your repo, and deploy your Compute app to Fastly at the same time.
+
 When you're ready to deploy your app to the Fastly network, you'll need an API key and one command entered into the Terminal:
 
 * Sign up for a <strong><a href="https://www.fastly.com/signup/" target="_blank">free Fastly developer account</a></strong>
@@ -143,6 +145,8 @@ GitHub will keep the edits you make in the codespace only for a limited time, so
 > <img alt="export to branch" width="500px" src="https://github.com/user-attachments/assets/c7815347-3e5a-4e34-97f2-db58343acaa4"/>
 
 ## How this project works 
+
+When you're working with the local version of your app in the codespace, it'll use the local version of your origin site. When you publish, the Compute app will use the version of your origin deployed to GitHub Pages (at `username.github.io/reponame`).
 
 ⚙️ The settings we use to create the guided experience in the codespace are in the `.devcontainer/` folder.
 
