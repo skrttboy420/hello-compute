@@ -1,16 +1,20 @@
 /**
  * This code runs on the Fastly Compute platform 🚀 
+ *
+ * When you publish, the scripts will publish the origin site to GitHub Pages
+ * and the Compute app to Fastly
  */
 
 import { getGeolocationForIpAddress } from "fastly:geolocation";
 import { env } from "fastly:env";
 let where = "?", greeting = "Hello! ";
-let root = "/hello-compute-with-origin/"; //change the root if your site is at a different path 
+let root = "/hello-compute/"; //change the root if your repo name (site path) is different 
 
 // We use a function to handle requests to the origin
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
 async function handleRequest(_event) {
+  // Use the root var only if we aren't testing locally 
   if(env("FASTLY_HOSTNAME") == "localhost") root = "/";
   
   //The request the user made
