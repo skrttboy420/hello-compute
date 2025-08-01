@@ -101,6 +101,8 @@ You can share links to your draft app with collaborators – click **🔗 Share*
 You can try your Compute app at the edge using the **🚀 Publish** button. This will deploy your origin site to the GitHub Pages site for your repo, and deploy your Compute app to Fastly at the same time.
 
 > ⚠️ Note that the script will attempt to deploy the origin version of your site to `username.github.io/reponame` so it might not work as expected if your repo is in an organization rather than a user account.
+> 
+> 🚨 If you named your repo something different to `hello-compute` – change the `root` variable in `src/index.js` to match it.
 
 When you're ready to deploy your app to the Fastly network, you'll need an API key and one command entered into the Terminal:
 
