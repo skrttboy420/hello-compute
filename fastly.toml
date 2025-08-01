@@ -5,7 +5,7 @@ authors = ["<oss@fastly.com>"]
 description = "A project for learning about edge computing."
 language = "javascript"
 manifest_version = 3
-name = "Hello Compute with Origin"
+name = "Hello Compute"
 
 [local_server]
 
