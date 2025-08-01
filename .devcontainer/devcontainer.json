@@ -9,12 +9,12 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "portsAttributes": {
-    "4173": {
-      "label": "Origin",
+    "3000": {
+      "label": "🚧 Origin",
       "onAutoForward": "openPreview"
     },
     "7676": {
-      "label": "Compute",
+      "label": "🌎 Compute",
       "onAutoForward": "openPreview"
     }
   },
@@ -25,7 +25,7 @@
   "postAttachCommand": {
     "inform": "bash helpers/welcome.sh",
     "build": "npm run start",
-    "origin": "cd origin && npm run build && npm run preview"
+    "origin": "cd origin && npx --yes serve --no-port-switching=true"
   },
   "waitFor": "updateContentCommand",
   "customizations": {
@@ -38,10 +38,7 @@
         "files.exclude": {
           "package-lock.json": true,
           ".gitignore": true,
-          "node_modules/": true,
-		  "origin/node_modules": true,
-		  "origin/dist": true,
-		  "origin/package-lock.json": true
+          "node_modules/": true
         },
         "editor.minimap.enabled": false,
         "chat.sendElementsToChat.enabled": false,
@@ -72,7 +69,7 @@
               "name": "🔗 Share",
               "singleInstance": true,
               "command": "bash helpers/share.sh",
-              "tooltip": "Grab a link to share your draft site"
+              "tooltip": "Grab a link to share your draft app"
             },
             {
               "name": "🚀 Publish",
