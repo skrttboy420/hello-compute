@@ -7,14 +7,34 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.post('/webhook', (req, res) => {
-  console.log('📨 LINE Event Received:', req.body.events);
+app.post('/webhook', async (req, res) => {
+  const events = req.body.events;
 
-  // ตอบกลับ LINE (optional)
-  // คุณสามารถเพิ่ม logic ตรงนี้เพื่อส่งข้อความกลับไปที่ LINE ได้
+  for (const event of events) {
+    if (event.type === 'message' && event.message.type === 'text') {
+      const replyToken = event.replyToken;
+      const userMessage = event.message.text;
 
-  res.status(200).send('OK');
+      await axios.post('https://api.line.me/v2/bot/message/reply', {
+        replyToken: replyToken,
+        messages: [
+          {
+            type: 'text',
+            text: `คุณพิมพ์ว่า: ${userMessage}`
+          }
+        ]
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${LINE_ACCESS_TOKEN}`
+        }
+      });
+    }
+  }
+
+  res.status(200).json({ message: 'Webhook Event Processed' });
 });
+
 
 app.get('/', (req, res) => {
   res.send('LINE Webhook Server is running 🚀');
