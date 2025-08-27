@@ -9,6 +9,11 @@ let root = "/compute-origin/"; //change the root if your site is at a different 
 // We use a function to handle requests to the origin
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
+app.post('/webhook', (req, res) => {
+  console.log('LINE Event:', req.body.events);
+  res.status(200).send('OK');
+});
+
 async function handleRequest(_event) {
   //The request the user made
   let req = _event.request;
