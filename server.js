@@ -1,3 +1,5 @@
+const axios = require('axios'); // ถ้ายังไม่มี
+const LINE_ACCESS_TOKEN = 'cXjjG2M+BoFGyqP7GhizhWuBVA109TDjghcWtOEpdwPWcrzzcWpA7f105akofaf5q+h94oGuFrgyr6j4lP0SSJeyHf2oP7kqVpN1X+4/ycvQYxSafuDVub440nOW34rj7X90w7l82ziQCZ60q33DEQdB04t89/1O/w1cDnyilFU=';
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
